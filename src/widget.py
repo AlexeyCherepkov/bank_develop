@@ -1,3 +1,4 @@
+from datetime import datetime
 from src.masks import get_mask_account, get_mask_card_number
 
 
@@ -22,9 +23,9 @@ def mask_account_card(data: str) -> str:
     return account_card_data + masked_number
 
 
-def get_date(date: str) -> str:
+def get_date(str_date: str) -> str:
     """
     Функция возвращает дату в формате ДД.ММ.ГГГГ
     """
-    data_list = [date[8:10], date[5:7], date[:4]]
-    return ".".join(data_list)
+    date_format = datetime.fromisoformat(str_date)
+    return date_format.strftime("%d.%m.%Y")
