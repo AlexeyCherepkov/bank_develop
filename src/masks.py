@@ -5,7 +5,13 @@ def get_mask_card_number(card_number: int | str) -> str:
     """
     str_card_number = str(card_number)
     if len(str_card_number) == 16:
-        masked_number = str_card_number[:4] + " " + str_card_number[4:6] + "** **** " + str_card_number[12:]
+        masked_number = (
+            str_card_number[:4]
+            + " "
+            + str_card_number[4:6]
+            + "** **** "
+            + str_card_number[12:]
+        )
         return masked_number
     else:
         raise ValueError("Неверно введены данные карты")
